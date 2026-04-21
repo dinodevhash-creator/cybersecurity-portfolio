@@ -1,0 +1,30 @@
+1. Tittle & Info
+Room : Blue
+Platform (TryHackMe)
+Level(easy)
+Tanggal Pengerjaan 11 april 2026
+2. Objective (Tujuan) :
+Tujuan lab ini untuk Deploy & hack ke dalam windows, memanfaatkan kesalahan konfigurasi yang sering terjadi.
+3. Reconnaissance (Pengumpulan Informasi)
+saya menggunakan nmap untuk melakukan scanning pada ip target untuk melihat port apa saja yang terbuka dan
+untuk mengetahui payload apa yang menjadi titik rentan target dengan menggunakan blue.nmap
+untuk command lengkap yang saya gunakan : nmap -sV -sC --script vuln -oN blue.nmap target_ip.
+Port terbuka :
+- 135/tcp dengan service tcpwrapped
+untuk vulnerablenya didapatkan SMBv2 exploit(CVE-2009-3103, Microsoft Security Advisory 975497)
+4. Enumeration
+saya mencari melalui google.com bagaimana untuk mengakses SMBv2 exploit lewat metasploit 
+5. exploitation
+saya menggunakan metasploit dengan module sm17_EternalBlue untuk mengeksploitasinya didalam room ini saya
+diberikan ip_target. saya mengubah port ke 4441 dan berhasil mengakses session dari ip_target.
+6. Privilige Esacalation 
+disini saya menggunakan post/multi/manage/shell_to_meterpreter untuk bisa naik dari user biasa ke root/admin
+dengan cara mengupgrade session yang didapat sebelumnya.
+7. Flags/Proof
+saya mendapatkan usernama dan password dari target 
+username : Jon
+password: alqfna22
+untuk flag yang didapatkan ada 3 yaitu:
+1. flag{access_the_machine}
+2. flag{sam_database_elevated_access
+3. flag{admin_documents_can_be_valuable}
