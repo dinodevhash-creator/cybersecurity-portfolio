@@ -1,0 +1,14 @@
+room burpsuite: Repeater
+difficulty: Easy
+using http://10.48.188.63/
+step by step:
+1. open burpsuite
+2. change to proxy tab and turn on the intercept
+3. search in browesr for http://10.48.188.63/
+4. captured the request in GET 
+5. ctrl + r for the caputered request get to the repeater tab
+6. adding "FlagAuthorised: True" in the Request column 
+7. got a response with THM{Yzg2MWI2ZDhlYzdlNGFiZTUzZTIzMzVi} this is 
+the credential we got
+
+thanks
